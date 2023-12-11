@@ -99,6 +99,7 @@ select,
 input {
     margin-top: 10px;
     padding: 10px;
+    text-align: right;
     color: #090000;
     font-size: 16px;
     border: none;
