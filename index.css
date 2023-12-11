@@ -11,8 +11,8 @@ body::before {
   top: 0;
   left: 0;
   width: 100%;
-  height: 120px; /* Set the height to your desired value */
-  z-index: 2; /* Place it on top of other elements */
+  height: 120px;
+  z-index: 2;
 }
 
 body::after {
@@ -22,20 +22,20 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('https://i.pinimg.com/originals/fc/e9/7e/fce97eba95fd3de922940e31f8ab8982.gif') center center/cover; /* Background image with cover */
+  background: url('https://i.pinimg.com/originals/fc/e9/7e/fce97eba95fd3de922940e31f8ab8982.gif') center center/cover;
   filter: brightness(0.2);
   backdrop-filter: blur(8px);
   z-index: -1;
 }
 
 header {
-    background-color: transparent;
-    color: #fff;
-    padding: 15px;
-    text-align: center;
-    position: relative;
-    z-index: 2;
-    margin-bottom: 0px; /* Add margin to the bottom of the header */
+  background-color: transparent;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 0px;
 }
 
 header h1 {
@@ -83,7 +83,7 @@ main {
 }
 
 .hero {
-  margin-top: 20px; /* Adjusted margin-top for ME section */
+  margin-top: 20px;
   margin-bottom: 60px;
 }
 
@@ -118,38 +118,37 @@ footer {
 
 @media (max-width: 768px) {
   header {
-      padding: 15px;
+    padding: 15px;
   }
 
   nav ul {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   nav li {
-      margin: 10px 0;
+    margin: 10px 0;
   }
 
   nav a {
-      font-size: 16px;
-      padding: 12px 53px;
+    font-size: 16px;
+    padding: 12px 53px;
   }
 
   main {
-      padding: 20px;
+    padding: 20px;
   }
 
   footer {
-      padding: 10px;
+    padding: 10px;
   }
-
 }
 
 .button-container {
   display: flex;
   justify-content: space-around;
   margin-bottom: 40px;
-  margin-top: 20px; /* Add margin to the top of the button container */
+  margin-top: 20px;
 }
 
 .redirect-button::before {
@@ -175,10 +174,10 @@ footer {
 }
 
 .redirect-button.red {
-  border: 5px solid #fd0000; /* Border color for the box */
-  border-radius: 70%; /* Circular shape */
+  border: 5px solid #fd0000;
+  border-radius: 70%;
   cursor: pointer;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow to the transition */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .redirect-button.red::before {
@@ -188,11 +187,11 @@ footer {
   left: 5px;
   right: 5px;
   bottom: 5px;
-  border: 5px solid transparent; /* Border color for the inner box, creating a hollow effect */
+  border: 5px solid transparent;
 }
 
 .redirect-button.red:hover {
-  box-shadow: 0 0 10px 10px #ff0404; /* Larger yellow box shadow for highlighting outside */
+  box-shadow: 0 0 10px 10px #ff0404;
 }
 
 .redirect-button.blue {
@@ -202,7 +201,7 @@ footer {
   border: 5px solid transparent;
   border-radius: 15px;
   cursor: pointer;
-  transition: border-color 0.5s ease, box-shadow 0.3s ease; /* Adjusted transition duration */
+  transition: border-color 0.5s ease, box-shadow 0.3s ease;
   background-color: transparent;
 }
 
@@ -216,7 +215,7 @@ footer {
   width: 100px;
   height: 5px;
   background-color: #0000ff;
-  transition: transform 0.3s ease; /* Added transition for the lines */
+  transition: transform 0.3s ease;
 }
 
 .redirect-button.blue::before {
@@ -230,7 +229,7 @@ footer {
 .redirect-button.blue:hover::before,
 .redirect-button.blue:hover::after {
   transform: translate(-50%, -50%) rotate(45deg);
-  box-shadow: 2px 0 15px 5px #0000ff; /* Adjusted box-shadow values for a larger highlight */
+  box-shadow: 2px 0 15px 5px #0000ff;
 }
 
 .redirect-button.blue:hover::before {
@@ -240,18 +239,16 @@ footer {
 .redirect-button.green {
   position: relative;
   width: 70px;
-  height: 70px; /* Adjusted height to make it a square */
-  border: 5px solid #4caf50; /* Border color for the green diamond */
+  height: 70px;
+  border: 5px solid #4caf50;
   cursor: pointer;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow to the transition */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   background-color: transparent;
-  transform: rotate(45deg); /* Rotate the entire button to make it diamond-shaped */
-  border-radius: 0; /* Set border-radius to 0 to make the edges completely sharp */
-  margin-top: 10px; /* Adjusted margin-top to 0 for alignment */
+  transform: rotate(45deg);
+  border-radius: 0;
+  margin-top: 10px;
   margin-bottom: 17.5px;
 }
-
-
 
 .redirect-button.green::before {
   content: '';
@@ -260,23 +257,23 @@ footer {
   left: 0;
   right: 0;
   bottom: 0;
-  border: 5px solid #4caf50; /* Border color for the inner diamond, creating a hollow effect */
-  transform: rotate(-45deg); /* Counter-rotate the inner diamond to cancel the rotation of the button */
-  border-radius: 0; /* Set border-radius to 0 for sharp edges */
+  border: 5px solid #4caf50;
+  transform: rotate(-45deg);
+  border-radius: 0;
 }
 
 .redirect-button.green:hover {
-  box-shadow: 0 0 10px 10px #388e3c; /* Add a green box shadow for highlighting outside */
+  box-shadow: 0 0 10px 10px #388e3c;
 }
 
 .redirect-button.yellow {
   position: relative;
   width: 85px;
   height: 85px;
-  border: 5px solid #7e57c2; /* Border color for the box */
+  border: 5px solid #7e57c2;
   cursor: pointer;
   margin-bottom: 10px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow to the transition */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   background-color: transparent;
 }
 
@@ -287,13 +284,9 @@ footer {
   left: 5px;
   right: 5px;
   bottom: 5px;
-  border: 5px solid transparent; /* Border color for the inner box, creating a hollow effect */
+  border: 5px solid transparent;
 }
 
 .redirect-button.yellow:hover {
-  box-shadow: 0 0 10px 10px #591ebf; /* Add a yellow box shadow for highlighting outside */
+  box-shadow: 0 0 10px 10px #591ebf;
 }
-
-
-
-
