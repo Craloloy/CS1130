@@ -1,0 +1,188 @@
+body {
+    height: auto; 
+}
+
+#deleteModal {
+    display: none;
+    background-color: white;
+    padding: 20px;
+    max-width: 300px;
+    max-height: 40vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1050;
+    overflow: auto;
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1040;
+    overflow: auto;
+}
+
+#deleteModal .modal-dialog {
+    margin: 0;
+}
+
+#deleteModal .modal-content {
+    border: none;
+}
+
+#deleteModal .modal-header,
+#deleteModal .modal-footer {
+    border: 1px solid #dee2e6;
+    padding: 15px;
+    text-align: center;
+}
+
+#deleteModal .modal-title {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+#deleteModal .modal-body {
+    padding: 20px;
+}
+
+#deleteModal button {
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+#deleteModal .close {
+    margin-right: 2px;
+    width: 30px;
+    height: 20px;
+}
+
+#deleteModal .close:hover {
+    color: #ff0000;
+}
+
+#deleteModal .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+#deleteModal .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+#deleteModal .btn-secondary {
+    background-color: #7d6c6c;
+    border-color: #6c757d;
+}
+
+#deleteModal .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+#payrollTable td button.delete-button,
+#payrollTable td button.edit-button {
+    padding: 8px 12px;
+    font-size: 14px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+#payrollTable td button.delete-button {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+}
+
+#payrollTable td button.edit-button {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #fff;
+}
+
+#editModal .modal-dialog {
+    max-width: 400px;
+}
+
+#editModal .modal-content {
+    border: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+#editModal .modal-header {
+    background-color: #007bff;
+    color: #fff;
+    border-bottom: 1px solid #0056b3;
+    padding: 15px;
+    text-align: center;
+}
+
+#editModal .modal-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+#editModal .modal-body {
+    padding: 20px;
+}
+
+#editModal .modal-footer {
+    border-top: 1px solid #0056b3;
+    padding: 15px;
+    text-align: center;
+}
+
+#editModal button {
+    padding: 10px 20px;
+    margin-right: 10px;
+}
+
+#editModal button.btn-primary {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+#editModal button.btn-primary:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+#editModal button.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+#editModal button.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+#editModal label {
+    margin-bottom: 5px;
+}
+
+#editModal input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#editModal .close {
+    width: 20px;
+    height: 20px;
+}
+
+#editModal .close:hover {
+    color: #ff0000;
+}
+

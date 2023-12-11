@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Number Calculator</title>
+    <link rel="stylesheet" href="factorial.css">
+    <style>
+        /* Add this style for the modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            text-align: center;
+            position: relative;
+        }
+
+        #closeModal {
+            color: #888;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #closeModal:hover {
+            color: red; /* Change color on hover to red */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator-container">
+        <h1>First N Natural Numbers</h1>
+
+        <label for="numberInput">Enter a Number:</label>
+        <input type="number" id="numberInput" placeholder="Enter a Number" />
+
+        <button onclick="calculateResults()">Calculate</button>
+
+        <div class="results-container">
+            <div class="result-item">
+                <h2>Factorial</h2>
+                <div id="factorialResult" class="result-value">Result: </div>
+            </div>
+
+            <div class="result-item">
+                <h2>Sum</h2>
+                <div id="sumResult" class="result-value">Result: </div>
+            </div>
+
+            <div class="result-item">
+                <h2>Average</h2>
+                <div id="averageResult" class="result-value">Result: </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for error message -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" onclick="closeModal()">&times;</span>
+            <p>Please enter a valid positive number.</p>
+        </div>
+    </div>
+
+    <button id="goToMainPageButton" onclick="goToMainPage()">Go to Main Page</button>
+
+    <script>
+        function calculateResults() {
+            const numberInput = parseInt(document.getElementById("numberInput").value);
+
+            if (isNaN(numberInput) || numberInput < 1) {
+                // Display the modal if the input is not valid
+                document.getElementById("myModal").style.display = "block";
+                return;
+            }
+
+            // ... (unchanged code)
+        }
+
+        function goToMainPage() {
+            window.location.href = "index.html";
+        }
+
+        // Close the modal when the user clicks on the close button
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Close the modal if the user clicks outside the modal
+        window.onclick = function(event) {
+            if (event.target === document.getElementById("myModal")) {
+                document.getElementById("myModal").style.display = "none";
+            }
+        };
+    </script>
+
+</body>
+</html>

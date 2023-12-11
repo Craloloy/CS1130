@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xplore!</title>
+    <link rel="stylesheet" href="index.css"> <!-- Link to your custom styles or use inline styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <style>
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 5; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        }
+
+        /* Modal content */
+        .modal-content {
+            background-color: #f2f2f2; /* Updated background color */
+            margin: 15% auto;
+            padding: 20px;
+            border: 2px solid #333; /* Added border */
+            width: 100%;
+            max-width: 600px;
+            text-align: center; /* Center text in the modal */
+            border-radius: 10px; /* Added border-radius for a rounded look */
+        }
+
+        /* Close button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-button {
+            background-color: #333;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Hamburger button styles */
+        .hamburger {
+            color: white;
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 3;
+        }
+
+        /* Pull tab styles */
+        .pull-tab {
+            position: fixed;
+            left: -40px;
+            top: 20px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 0 5px 5px 0;
+            transition: left 0.5s ease;
+            z-index: 3;
+        }
+
+        .pull-tab:hover {
+            left: 9px;
+        }
+
+        /* About Me Page styles */
+        .about-page {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 370px;
+    background-color: #f2f2f2;
+    text-align: center;
+    z-index: 4;
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+}
+
+.profile-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.profile-info {
+    text-align: left;
+}
+
+.info-row {
+    margin-bottom: 10px;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.info-button {
+    background-color: #393636;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.info-button:hover {
+    background-color: #555;
+}
+
+.close-about {
+    background-color: #333;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.close-about:hover {
+    background-color: #555;
+}
+
+/* Additional styles for Try Me section */
+.piano-surprise {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.try-me-text {
+    font-size: 18px;
+    margin-top: 10px;
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- The modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 class="modal-title">Welcome to Xplore!</h2>
+            <p class="modal-message">
+                "Take a journey into the heart of my programs, where each button is an invitation to explore a different digital adventure.
+                Want to convert something? Click and let the magic unfold.
+                Curious about numbers and factorials? I've got you covered.
+                Need to tackle income tax or navigate the payroll maze? Just click your way through.
+                Every button is a gateway to a new experience, crafted with care and waiting for you to discover.
+                So, go ahead, choose a path, and let the digital exploration begin.
+                It's a world of tech wonders at XPLORE, and I can't wait for you to dive in and enjoy the ride!"
+            </p>
+        </div>
+    </div>
+
+    <!-- Pull tab -->
+    <div class="pull-tab" onclick="openAboutPage()">About Me</div>
+
+    <!-- About Me Page -->
+    <div id="aboutPage" class="about-page">
+        <span class="close-about" onclick="closeAboutPage()">Close</span>
+        <h2 class="modal-title">About Me</h2>
+    
+        <!-- Profile picture and information -->
+        <div class="profile-container">
+            <img src="https://scontent.fcgy1-1.fna.fbcdn.net/v/t39.30808-6/409167398_2668083126677852_481335507894597367_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeGwUvVrAj33pAy4NaDEw7ejjVSRBxejVXONVJEHF6NVc8eWJChUX04xLXtuGG__wpepR5NDB_GCls4Bsz1Vm68_&_nc_ohc=kJ5WMNzpcFwAX8xczj9&_nc_ht=scontent.fcgy1-1.fna&oh=00_AfCeFAXcaVNduSEbzRfIVPYs61pUyaJJHf8KmxrZo5fRCg&oe=657A993D" alt="Your Picture" class="profile-picture">
+            <div class="profile-info">
+                <div class="info-row">
+                    <button class="info-button" onclick="openLink('https://www.facebook.com/craloloy')">
+                        <span class="icon">&#128100;</span>Carl Roque
+                    </button>
+                    <button class="info-button" onclick="openLink('https://www.facebook.com/addu.cs')">
+                        <span class="icon">&#128218;</span>BS in Computer Science
+                    </button>
+                </div>
+                <div class="info-row">
+                    <button class="info-button" onclick="openLink('https://discord.gg/uJ9mqcEDyt')">
+                        <span class="icon">&#128220;</span>CS-1C
+                    </button>
+                    <button class="info-button" onclick="openLink('mailto:crmroque@addu.edu.ph')">
+                        <span class="icon">&#9993;</span>crmroque@addu.edu.ph
+                    </button>
+                </div>
+                <div class="info-row">
+                    <button class="info-button" onclick="openLink('https://github.com/Craloloy')" target="_blank">
+                        <span class="icon">&#128187;</span>Github Account
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <h1>XPLORE</h1>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="convert.html">Conversion</a></li>
+                <li><a href="factorial.html">Numbers</a></li>
+                <li><a href="incometax.html">Income Tax</a></li>
+                <li><a href="payroll.html">Payroll</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Your existing content here -->
+
+        <section class="hero">
+            <h2>ME</h2>
+            <p>LALALA.</p>
+        </section>
+
+        <section class="button-container">
+            <div class="button-wrapper">
+                <button class="redirect-button red" data-label="Convert" data-text="Conversion" onclick="navigateTo('convert.html')"></button>
+                <p class="button-name">Convert</p>
+            </div>
+
+            <div class="button-wrapper">
+                <button class="redirect-button blue" data-label="Factorial" data-text="Numbers" onclick="navigateTo('factorial.html')"></button>
+                <p class="button-name">Factorial</p>
+            </div>
+
+            <div class="button-wrapper">
+                <button class="redirect-button green" data-label="Income Tax" data-text="Income Tax Calculations" onclick="navigateTo('incometax.html')"></button>
+                <p class="button-name">Income Tax</p>
+            </div>
+
+            <div class="button-wrapper">
+                <button class="redirect-button yellow" data-label="Payroll" data-text="Payroll" onclick="navigateTo('payroll.html')"></button>
+                <p class="button-name">Payroll</p>
+            </div>
+        </section>
+
+        <!-- Piano image and "Try Me" text -->
+        <section class="piano-surprise">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/016/652/461/small/electric-piano-keyboard-isolated-childish-hand-drawn-style-illustration-of-kids-drawing-piano-doodle-concept-png.png" alt="Surprise me with a Piano!" onclick="navigateTo('piano.html')" width="100" height="100">
+            <p class="try-me-text">Try Me</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 XPLORE.</p>
+    </footer>
+
+    <script>
+        // Function to open the modal
+        function openModal() {
+            document.getElementById('myModal').style.display = 'flex';
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+
+        // Function to open the About Me page
+        function openAboutPage() {
+            document.getElementById('aboutPage').style.display = 'block';
+        }
+
+        // Function to close the About Me page
+        function closeAboutPage() {
+            document.getElementById('aboutPage').style.display = 'none';
+        }
+
+        // Function to navigate to a page
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+
+        function openLink(url) {
+            window.open(url, '_blank');
+        }
+        
+        document.getElementById('myModal').addEventListener('click', function (event) {
+            closeModal();
+        }); 
+
+    // Close the About Me page when clicked outside of it
+        document.getElementById('aboutPage').addEventListener('click', function (event) {
+            if (event.target === this) {
+                closeAboutPage();
+            }
+        });
+
+        // Open the modal when the page is loaded
+        window.onload = openModal;
+    </script>
+
+</body>
+
+</html>

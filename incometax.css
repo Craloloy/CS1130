@@ -1,0 +1,135 @@
+.body::before,
+body::after {
+    pointer-events: none;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    z-index: 2;
+    pointer-events: none; /* Make the overlay not block clicks */
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.pinimg.com/originals/fc/e9/7e/fce97eba95fd3de922940e31f8ab8982.gif') center center/cover;
+    filter: brightness(0.2);
+    backdrop-filter: blur(8px);
+    z-index: -1;
+    pointer-events: none; /* Make the overlay not block clicks */
+}
+
+h1 {
+    margin: 31px;
+    margin-top: 50px;
+    margin-left: 50px;
+    text-align: center;
+    color: #fff;
+}
+
+.table-container {
+    padding-right: 175px;
+    padding-left: 200px;
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+}
+
+#taxableIncome {
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.tax-table {
+    margin-top: 20px;
+    width: 60%; /* Set a specific width for the table */
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto; /* Center the table */
+}
+
+
+.tax-table th,
+.tax-table td {
+    padding: 8px; /* Adjust padding for cells */
+    border: 1px solid #fff;
+    text-align: center; /* Center the text */
+}
+
+.tax-table th {
+    background-color: #555;
+    color: #fff;
+}
+
+.tax-table th,
+.tax-table td {
+    padding: 8px; /* Adjust padding for cells */
+    border: 1px solid #fff;
+    text-align: center;
+}
+
+.tax-table th:first-child,
+.tax-table td:first-child {
+    text-align: left;
+}
+
+#goToMainPageButton {
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#goToMainPageButton:hover {
+    background-color: #555;
+}

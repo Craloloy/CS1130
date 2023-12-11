@@ -1,0 +1,155 @@
+/* payroll.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('https://i.pinimg.com/originals/fc/e9/7e/fce97eba95fd3de922940e31f8ab8982.gif') center center/cover;
+    color: #fff; /* Set text color to white for better visibility on the background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative; /* Set position to relative to make z-index work */
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Darkened blur effect */
+    backdrop-filter: blur(8px);
+    z-index: -1;
+}
+
+h1 {
+    margin-top: 100px; /* Adjusted margin-top */
+    font-size: 24px; /* Adjusted font size */
+    text-align: center;
+    color: white;
+}
+
+label {
+    display: block;
+    margin: 5px 0; /* Adjusted margin */
+    font-size: 14px; /* Adjusted font size */
+    color: rgb(137, 133, 133);
+}
+
+.delete-label {
+    color: #ff0000; /* Change this to the desired color */
+    font-weight: bold; /* Add other styles as needed */
+}
+
+/* Additional styles for better visibility (optional) */
+.delete-label label {
+    margin-bottom: 5px; /* Adjust as needed */
+}
+
+input {
+    margin-bottom: 10px; /* Adjusted margin-bottom */
+    padding: 8px; /* Adjusted padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 50%;
+    box-sizing: border-box;
+    font-size: 14px; /* Adjusted font size */
+    background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background */
+}
+
+button {
+    margin-top: 8px; /* Adjusted margin-top */
+    padding: 10px; /* Adjusted padding */
+    font-size: 14px; /* Adjusted font size */
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50%;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.modal {
+    position: absolute;
+    top: -100px; /* Adjust this value to move the modal up */
+    left: 0;
+    -webkit-box-align: center;
+    margin-bottom: 50px;
+    z-index: 1050;
+    display: none;
+    width: 100%;
+    height: 0%;
+    margin-bottom: 38px;
+    overflow: hidden;
+    outline: 0;
+}
+
+
+#payrollTable {
+    margin-top: 10px; /* Adjusted margin-top */
+    font-size: 14px; /* Adjusted font size */
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#payrollTable th, #payrollTable td {
+    border: 1px solid #ddd;
+    padding: 8px; /* Adjusted padding */
+    text-align: center;
+}
+
+#payrollTable th {
+    background-color: #333;
+    color: #fff;
+}
+
+#payrollTable td {
+    border: 1px solid #ddd;
+    padding: 8px; /* Adjusted padding */
+    text-align: center;
+    background-color: white; /* Added background color */
+}
+
+#deleteLine {
+    margin-top: 8px; /* Adjusted margin-top */
+    padding: 8px; /* Adjusted padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 50%;
+    box-sizing: border-box;
+    font-size: 14px; /* Adjusted font size */
+    background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background */
+}
+
+#deleteLine::placeholder {
+    color: #555;
+}
+
+
+#goToMainPageButton {
+    margin-top: 8px; /* Adjusted margin-top */
+    padding: 10px; /* Adjusted padding */
+    font-size: 14px; /* Adjusted font size */
+    background-color: #4f616c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50%;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
+}
+
+#goToMainPageButton:hover {
+    background-color: #b92929;
+}

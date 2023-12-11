@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Conversions</title>
+    <link rel="stylesheet" href="convert.css">
+    <style>
+        /* Add this style for the modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            text-align: center;
+            color: black;
+            position: relative;
+        }
+
+        #closeModal {
+            color: #888;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #closeModal:hover {
+            color: red; /* Change color on hover to red */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="converter-container">
+        <h1>Conversion Calculator</h1>
+
+        <label for="conversionType">Select Conversion Type:</label>
+        <select id="conversionType">
+            <option value="celsiusToFahrenheit">Celsius to Fahrenheit</option>
+            <option value="fahrenheitToCelsius">Fahrenheit to Celsius</option>
+            <option value="metersToFeet">Meters to Feet</option>
+            <option value="feetToMeters">Feet to Meters</option>
+        </select>
+
+        <label for="inputValue">Enter Value:</label>
+        <input type="number" id="inputValue" placeholder="Enter value" />
+
+        <button onclick="convert()">Convert</button>
+
+        <div id="result"></div>
+    </div>
+
+    <!-- Modal for error message -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" onclick="closeModal()">&times;</span>
+            <p>Please enter a valid number.</p>
+        </div>
+    </div>
+
+    <button id="goToMainPageButton" onclick="goToMainPage()">Go to Main Page</button>
+
+    <script>
+        function convert() {
+            var conversionType = document.getElementById("conversionType").value;
+            var inputValue = parseFloat(document.getElementById("inputValue").value);
+
+            if (isNaN(inputValue)) {
+                // Display the modal if the input is not valid
+                document.getElementById("myModal").style.display = "block";
+                return;
+            }
+
+            var result;
+            var formula;
+
+            switch (conversionType) {
+                case "celsiusToFahrenheit":
+                    result = (inputValue * 9/5) + 32;
+                    formula = "(Celsius * 9/5) + 32";
+                    break;
+                case "fahrenheitToCelsius":
+                    result = (inputValue - 32) * 5/9;
+                    formula = "(Fahrenheit - 32) * 5/9";
+                    break;
+                case "metersToFeet":
+                    result = inputValue * 3.28084;
+                    formula = "Meters * 3.28084";
+                    break;
+                case "feetToMeters":
+                    result = inputValue / 3.28084;
+                    formula = "Feet / 3.28084";
+                    break;
+                default:
+                    result = "Invalid conversion type";
+                    formula = "";
+            }
+
+            document.getElementById("result").innerHTML = "<p>Result: " + result.toFixed(2) + "</p><p>Formula: " + formula + "</p>";
+        }
+
+        function goToMainPage() {
+            window.location.href = "index.html";
+        }
+
+        // Close the modal when the user clicks on the close button
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Close the modal if the user clicks outside the modal
+        window.onclick = function(event) {
+            if (event.target === document.getElementById("myModal")) {
+                document.getElementById("myModal").style.display = "none";
+            }
+        };
+    </script>
+</body>
+
+</html>
