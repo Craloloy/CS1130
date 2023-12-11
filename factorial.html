@@ -81,47 +81,47 @@
     <button id="goToMainPageButton" onclick="goToMainPage()">Go to Main Page</button>
 
     <script>
-        function calculateResults() {
-            const numberInput = parseInt(document.getElementById("numberInput").value);
+function calculateResults() {
+    const numberInput = parseInt(document.getElementById("numberInput").value);
 
-            if (isNaN(numberInput) || numberInput < 1) {
-                // Display the modal if the input is not valid
-                document.getElementById("myModal").style.display = "block";
-                return;
-            }
+    if (isNaN(numberInput) || numberInput < 1) {
+        // Display the modal if the input is not valid
+        document.getElementById("myModal").style.display = "block";
+        return;
+    }
 
-            // Calculate Factorial (While Loop)
-            let factorialResult = 1;
-            let factorialCounter = 1;
+    // Calculate Factorial (While Loop)
+    let factorialResult = 1;
+    let factorialCounter = 1;
 
-            while (factorialCounter <= numberInput) {
-                factorialResult *= factorialCounter;
-                factorialCounter++;
-            }
+    while (factorialCounter <= numberInput) {
+        factorialResult *= factorialCounter;
+        factorialCounter++;
+    }
 
-            // Calculate Sum (Do While Loop)
-            let sumResult = 0;
-            let sumCounter = 1;
+    // Calculate Sum (Do While Loop)
+    let sumResult = 0;
+    let sumCounter = 1;
 
-            do {
-                sumResult += sumCounter;
-                sumCounter++;
-            } while (sumCounter <= numberInput);
+    do {
+        sumResult += sumCounter;
+        sumCounter++;
+    } while (sumCounter <= numberInput);
 
-            // Calculate Average (For Loop)
-            let averageResult = 0;
+    // Calculate Average (For Loop)
+    let averageResult = 0;
 
-            for (let i = 1; i <= numberInput; i++) {
-                averageResult += i;
-            }
+    for (let i = 1; i <= numberInput; i++) {
+        averageResult += i;
+    }
 
-            averageResult /= numberInput;
+    averageResult /= numberInput;
 
-            // Display results
-            document.getElementById("factorialResult").innerText = "Result: " + factorialResult;
-            document.getElementById("sumResult").innerText = "Result: " + sumResult;
-            document.getElementById("averageResult").innerText = "Result: " + averageResult.toFixed(2);
-        }
+    // Display results
+    document.getElementById("factorialResult").innerText = "Result: " + factorialResult;
+    document.getElementById("sumResult").innerText = "Result: " + sumResult;
+    document.getElementById("averageResult").innerText = "Result: " + averageResult.toFixed(2);
+}
         
 
         function goToMainPage() {
