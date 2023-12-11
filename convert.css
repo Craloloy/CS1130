@@ -107,8 +107,8 @@ input {
 
 #conversionType:hover,
 #conversionType:focus {
-    background-color: #464646; /* Change this to your desired hover color */
-    color: #fff; /* Change this to your desired text color on hover */
+    background-color: #464646;
+    color: #fff;
 }
 
 button {
