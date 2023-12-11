@@ -45,7 +45,7 @@ label {
 }
 
 #numberInput {
-    width: 60%; /* Set a specific width for the input box */
+    width: 60%;
     padding: 10px;
     margin-top: 10px;
     box-sizing: border-box;
