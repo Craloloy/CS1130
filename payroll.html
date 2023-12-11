@@ -5,16 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payroll Program</title>
     <link rel="stylesheet" href="payroll.css">
-    <!-- Add link for a modal stylesheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="payrowl.css">
     <style>
-        /* CSS styles for the delete-label class */
         .delete-label {
-            color: #ff0000; /* Change this to the desired color */
-            font-weight: bold; /* Add other styles as needed */
+            color: #ff0000;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -69,7 +66,6 @@
         </div>
     </div>
     
-    <!-- Edit Modal -->
     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -99,13 +95,11 @@
             </div>
         </div>
     </div>
-    \
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-    <!-- Modified label with a wrapper div for styling -->
     <div class="delete-label">
         <label for="deleteLine">Enter Line Number to Delete:</label>
     </div>
@@ -119,96 +113,84 @@
     <script>
         let payrollList = [];
 
-function addEmployee() {
-    const employeeName = document.getElementById("employeeName").value;
-    const daysWorked = parseInt(document.getElementById("daysWorked").value);
-    const dailyRate = parseFloat(document.getElementById("dailyRate").value);
-    const deductionAmount = parseFloat(document.getElementById("deductionAmount").value);
+        function addEmployee() {
+            const employeeName = document.getElementById("employeeName").value;
+            const daysWorked = parseInt(document.getElementById("daysWorked").value);
+            const dailyRate = parseFloat(document.getElementById("dailyRate").value);
+            const deductionAmount = parseFloat(document.getElementById("deductionAmount").value);
 
-    if (!employeeName || isNaN(daysWorked) || isNaN(dailyRate) || isNaN(deductionAmount)) {
-        // Display error modal if any field is empty or not a number
-        $("#errorModal").modal("show");
-        return;
-    }
+            if (!employeeName || isNaN(daysWorked) || isNaN(dailyRate) || isNaN(deductionAmount)) {
+                $("#errorModal").modal("show");
+                return;
+            }
 
-    const grossPay = daysWorked * dailyRate;
-    const netPay = grossPay - deductionAmount;
+            const grossPay = daysWorked * dailyRate;
+            const netPay = grossPay - deductionAmount;
 
-    const employee = {
-        employeeName,
-        daysWorked,
-        dailyRate,
-        grossPay,
-        deductionAmount,
-        netPay
-    };
+            const employee = {
+                employeeName,
+                daysWorked,
+                dailyRate,
+                grossPay,
+                deductionAmount,
+                netPay
+            };
 
-    payrollList.push(employee);
-    updateTable();
-    clearInputFields();
-}
+            payrollList.push(employee);
+            updateTable();
+            clearInputFields();
+        }
 
-// Function to close the error modal
-function closeErrorModal() {
-    $("#errorModal").modal("hide");
-}
-    
+        function closeErrorModal() {
+            $("#errorModal").modal("hide");
+        }
+
         function openDeleteModal() {
             const deleteLine = parseInt(document.getElementById("deleteLine").value);
-    
+
             if (isNaN(deleteLine) || deleteLine < 1 || deleteLine > payrollList.length) {
                 alert("Please enter a valid line number to delete.");
                 return;
             }
-    
-            // Set the delete line number in a data attribute of the modal
+
             $("#deleteModal").data("deleteLineNumber", deleteLine);
-            // Open the delete confirmation modal using Bootstrap
             $("#deleteModal").modal("show");
             $(".overlay").fadeIn();
         }
-    
+
         function deleteEmployeeConfirmed() {
             const deleteLine = $("#deleteModal").data("deleteLineNumber");
-    
+
             if (deleteLine !== undefined) {
                 payrollList.splice(deleteLine - 1, 1);
                 updateTable();
                 clearInputFields();
-                // Reset the delete line number in the data attribute
                 $("#deleteModal").data("deleteLineNumber", undefined);
-                // Close the modal after confirming using Bootstrap
                 $("#deleteModal").modal("hide");
             }
         }
-    
+
         function editEmployeeRow(index) {
             const employee = payrollList[index];
-    
-            // Populate the modal with the selected employee's data for editing
+
             document.getElementById("editEmployeeName").value = employee.employeeName;
             document.getElementById("editDaysWorked").value = employee.daysWorked;
             document.getElementById("editDailyRate").value = employee.dailyRate;
             document.getElementById("editDeductionAmount").value = employee.deductionAmount;
-    
-            // Set the edit index in a data attribute of the modal
+
             $("#editModal").data("editIndex", index);
-    
-            // Show the edit modal
+
             $("#editModal").modal("show");
         }
-    
+
         function saveEditedEmployee() {
-            // Get the edited values from the edit modal
             const editedEmployeeName = document.getElementById("editEmployeeName").value;
             const editedDaysWorked = parseInt(document.getElementById("editDaysWorked").value);
             const editedDailyRate = parseFloat(document.getElementById("editDailyRate").value);
             const editedDeductionAmount = parseFloat(document.getElementById("editDeductionAmount").value);
 
-            // Find the index of the edited employee in the array
             const index = $("#editModal").data("editIndex");
 
-            // Update the payrollList with the edited values
             payrollList[index].employeeName = editedEmployeeName;
             payrollList[index].daysWorked = editedDaysWorked;
             payrollList[index].dailyRate = editedDailyRate;
@@ -216,10 +198,8 @@ function closeErrorModal() {
             payrollList[index].grossPay = editedDaysWorked * editedDailyRate;
             payrollList[index].netPay = payrollList[index].grossPay - editedDeductionAmount;
 
-            // Update the table
             updateTable();
 
-            // Clear the input fields and close the modal
             clearEditModalFields();
             $("#editModal").modal("hide");
         }
@@ -228,7 +208,7 @@ function closeErrorModal() {
             payrollList.splice(index - 1, 1);
             updateTable();
         }
-    
+
         function clearInputFields() {
             document.getElementById("employeeName").value = "";
             document.getElementById("daysWorked").value = "";
@@ -242,16 +222,14 @@ function closeErrorModal() {
             document.getElementById("editDailyRate").value = "";
             document.getElementById("editDeductionAmount").value = "";
         }
-    
+
         function updateTable() {
             const table = document.getElementById("payrollTable");
-    
-            // Clear the existing table rows
+
             while (table.rows.length > 1) {
                 table.deleteRow(1);
             }
-    
-            // Add rows to the table
+
             payrollList.forEach((employee, index) => {
                 const row = table.insertRow(-1);
                 const cellNumber = row.insertCell(0);
@@ -262,7 +240,7 @@ function closeErrorModal() {
                 const cellDeductionAmount = row.insertCell(5);
                 const cellNetPay = row.insertCell(6);
                 const cellAction = row.insertCell(7);
-    
+
                 cellNumber.innerHTML = index + 1;
                 cellEmployeeName.innerHTML = employee.employeeName;
                 cellDaysWorked.innerHTML = employee.daysWorked;
@@ -279,24 +257,25 @@ function closeErrorModal() {
             window.location.href = "index.html";
         }
     </script>
-<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="errorModalLabel">Error</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                Please enter valid input for all fields.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" onclick="closeErrorModal()">OK</button>
+
+    <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="errorModalLabel">Error</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Please enter valid input for all fields.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="closeErrorModal()">OK</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
     
 </body>
 </html>

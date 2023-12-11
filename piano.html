@@ -17,7 +17,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            font-family: 'Montserrat', sans-serif; /* Added Montserrat font */
+            font-family: 'Montserrat', sans-serif;
         }
 
         .piano {
@@ -30,8 +30,8 @@
         .key {
             width: 100%;
             height: 150px;
-            background-color: #333; /* Adjusted color */
-            color: #fff; /* Adjusted text color */
+            background-color: #333; 
+            color: #fff; 
             border: 1px solid #000;
             border-radius: 5px;
             display: flex;
@@ -43,7 +43,7 @@
         }
 
         .white-key {
-            background-color: #ddd; /* Adjusted color */
+            background-color: #ddd; 
         }
 
         .black-key {
@@ -58,14 +58,13 @@
         }
 
         .key:hover {
-            background-color: #555; /* Adjusted hover color */
+            background-color: #555; 
         }
 
         .active {
-            background-color: #777; /* Adjusted active color */
+            background-color: #777; 
         }
 
-        /* Button Styles */
         .button-container {
             display: flex;
             gap: 20px;
@@ -96,19 +95,18 @@
 <body>
     <div class="piano"></div>
 
-    <!-- Button Container -->
     <div class="button-container">
-        <!-- Baba Black Sheep Button -->
+
         <button class="play-all-button" onclick="playBlackSheepWithDelays()">Baba Black Sheep?</button>
 
-        <!-- Go Back to Main Page Button -->
+  
         <button class="go-back-button" onclick="goBack()">Go Back to Main Page</button>
     </div>
 
     <script>
-        // Function to go back to the main page
+    
         function goBack() {
-            // You can customize this URL based on the actual path to your main page
+          
             window.location.href = 'index.html';
         }
     </script>
