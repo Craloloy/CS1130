@@ -1,4 +1,4 @@
-.body::before,
+body::before,
 body::after {
     pointer-events: none;
 }
@@ -88,7 +88,6 @@ button:hover {
     margin-left: auto;
     margin-right: auto; /* Center the table */
 }
-
 
 .tax-table th,
 .tax-table td {
